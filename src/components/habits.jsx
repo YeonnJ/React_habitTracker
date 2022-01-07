@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Habit from './habit';
 
 class Habits extends Component {
   state = {
@@ -9,7 +10,13 @@ class Habits extends Component {
     ],
   }
   render() {
-    return <div></div>
+    return (
+      <ul>
+        {this.state.habits.map((habit) => (
+          <Habit habit={habit}/> // 자식
+        ))}
+      </ul>
+    )
   }
 }
 
