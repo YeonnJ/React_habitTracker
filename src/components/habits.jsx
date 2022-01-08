@@ -4,20 +4,33 @@ import Habit from './habit';
 class Habits extends Component {
   state = {
     habits: [
-      { name: 'Reading', count: 0 },
-      { name: 'Exercising', count: 0 },
-      { name: 'Coding', count: 0 },
+      { id:1, name: 'Reading', count: 0 },
+      { id:2, name: 'Exercising', count: 0 },
+      { id:3, name: 'Coding', count: 0 },
     ],
-  }
+  };
+
+  handleIncrement = (habit) => {};
+
+  handleDecrement = (habit) => {};
+
+  handleDelete = (habit) => {};
+
   render() {
     return (
       <ul>
-        {this.state.habits.map((habit) => (
-          <Habit habit={habit}/> // 자식
-        ))}
+        {this.state.habits.map(habit => (
+          <Habit 
+          key={habit.id} 
+          habit={habit} 
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+          onDelete={this.handleDelete}
+          /> // 자식
+        ))};
       </ul>
-    )
+    );
   }
 }
 
-export default Habits
+export default Habits;
